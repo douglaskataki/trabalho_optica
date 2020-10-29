@@ -1,15 +1,18 @@
 clc;
 clear;
 
-% 
+% Condiçoes iniciais para a solução do sistema
 t0 = 0;
 t1 = 20;
 tspan = [t0 t1];
 
-% Bombeios Copropagantes
+%% Bombeios Copropagantes
+% Inicial
 P0 = [20e-3; 200e-3; 200e-3; 200e-3];
+% Resolve sistema de equações
 sol = ode45(@odefun,tspan,P0);
 
+%% Parametros para interpolação
 N = length(P0);
 z = sol.x;
 P = zeros(N,length(sol.y(1,:)));
