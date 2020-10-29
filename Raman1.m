@@ -3,7 +3,7 @@ clear;
 
 % Condiçoes iniciais para a solução do sistema
 t0 = 0;
-t1 = 20;
+t1 = 50;
 tspan = [t0 t1];
 
 %% Bombeios Copropagantes
@@ -33,10 +33,12 @@ end
 
 % plot dos gráficos
 for i=1:N
-    plot(zz,10*log10(PP(i,:)));
+    txt = ['P(',num2str(i),')'];
+    plot(zz,10*log10(PP(i,:)),'DisplayName',txt);
     hold on;
 end
 grid on;
+hold off;
 xlabel('z(km)');
 ylabel('P_t(dBm)');
-legend('Sinal','Bombeio 1','Bombeio 2','Bombeio 3');
+legend show;
